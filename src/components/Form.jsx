@@ -4,21 +4,25 @@ import { useState } from "react";
 
 const Form = () => {
   const [userName, setUserName] = useState("");
-  const [userRoll, setUserRoll] = useState("");
+  const [userAge, setUserAge] = useState("");
+  const [userEmail, setUserEmail] = useState("");
   const { handleAddData } = useForm();
   const addUserName = (e) => {
     setUserName(e.target.value);
   };
   const addUserRoll = (e) => {
-    setUserRoll(e.target.value);
+    setUserAge(e.target.value);
+  };
+  const addUserEmail = (e) => {
+    setUserEmail(e.target.value);
   };
   const handleForm = (e) => {
     e.preventDefault();
-    if (userName && userRoll) {
-      handleAddData(userName, userRoll);
+    if (userName && userAge && userEmail) {
+      handleAddData(userName, userAge,userEmail);
       setUserName("");
-      setUserRoll("");
-      
+      setUserAge("");
+      setUserEmail("");
     }
   };
   return (
@@ -36,13 +40,23 @@ const Form = () => {
           />
         </label>
         <label>
-          <span className="block font-medium text-left opacity-80">UserRollNumber</span>
+          <span className="block font-medium text-left opacity-80">Age</span>
           <input
             type="number"
-            placeholder="Enter your rollNumber"
+            placeholder="Enter your age"
             className="w-full p-1 text-black border-none rounded outline-none placeholder:text-stone-800 bg-stone-400"
-            value={userRoll}
+            value={userAge}
             onChange={(e) => addUserRoll(e)}
+          />
+        </label>
+        <label>
+          <span className="block font-medium text-left opacity-80">Email</span>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="w-full p-1 text-black border-none rounded outline-none placeholder:text-stone-800 bg-stone-400"
+            value={userEmail}
+            onChange={(e) => addUserEmail(e)}
           />
         </label>
         <button className="block w-full p-1 px-2 mx-auto bg-blue-500 rounded hover:bg-blue-600">
