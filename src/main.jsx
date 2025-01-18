@@ -17,7 +17,7 @@ const router = createBrowserRouter(
       <Route path='' element={<HomePage/>}/>
       <Route path='/form' element={<Form/>}/>
       <Route path='/show' element={<FormDetails/>}/>
-      <Route path='/:userRoll' element={<SingleUserDetails/>}/>
+      <Route path='/:index' element={<SingleUserDetails/>}/>
     </Route>
   )
 )
