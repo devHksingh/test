@@ -5,7 +5,7 @@ import { useForm } from "../context/formContext"
 const FormDetails = () => {
   const {formState,handleRemoveData} = useForm()
   
-  console.log(formState);
+  console.log(formState.length);
   
   return (
     <div className="max-w-4xl mx-auto space-y-4">
@@ -21,7 +21,7 @@ const FormDetails = () => {
                 console.log(index)
                 handleRemoveData(index)
                 }}>Delete</button>
-              <Link className="p-1 px-2 rounded-md bg-sky-500 hover:bg-sky-600" to={`/${index}`}>View</Link>
+              <Link className="p-1 px-2 rounded-md bg-sky-500 hover:bg-sky-600" to={`/${item.id}`}>View</Link>
             </div>
         </div>
       ))}

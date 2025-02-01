@@ -6,7 +6,8 @@ const Form = () => {
   const [userName, setUserName] = useState("");
   const [userAge, setUserAge] = useState("");
   const [userEmail, setUserEmail] = useState("");
-  const { handleAddData } = useForm();
+  const { handleAddData,formState } = useForm();
+  console.log(formState.length);
   const addUserName = (e) => {
     setUserName(e.target.value);
   };
@@ -19,7 +20,8 @@ const Form = () => {
   const handleForm = (e) => {
     e.preventDefault();
     if (userName && userAge && userEmail) {
-      handleAddData(userName, userAge,userEmail);
+      const id = formState.length +1
+      handleAddData(userName, userAge,userEmail,id);
       setUserName("");
       setUserAge("");
       setUserEmail("");
